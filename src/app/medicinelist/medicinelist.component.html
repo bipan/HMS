@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/admin">HMS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+          <a class="nav-link" routerLink="/create-medicine">Add Medicine</a>
+        <a class="nav-link" routerLink="/docdash">Back</a>
+        <button class="btn btn-danger" routerLink="/home">logout</button>
+      </div>
+    </div>
+  </div>
+</nav>
+<table class="table table-striped">
+    <thead class="table-header">
+        <tr>
+            <th>ID</th>
+            <th>Drug Name</th>
+            <th>Stock</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let medicine of medicines">
+            <td>{{medicine.id}}</td>
+            <td>{{medicine.drugName}}</td>
+            <td>{{medicine.stock}}</td>
+            <td><button type="submit" class="btn btn-success" (click)="update(medicine.id)">Update</button>
+              <button type="submit" class="btn btn-danger" (click)="delete(medicine.id)">Delete</button></td>
+        </tr>
+    </tbody>
